@@ -35,7 +35,7 @@ const ButtonGroup = styled.div`
     justify-content:flex-end;
 `;
 
-function Dialog({children, title, confirmText, cancelText}){
+function Dialog({children, title, visible, onConfirm, onCancle, confirmText, cancelText}){
     if(!visible) return null;
     return(
         <div>

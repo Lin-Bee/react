@@ -8,14 +8,20 @@ const colorStyled = css`
         return css`
         background:${selected};
         
+        &:hover{
+            background: ${lighten(0.1,selected)}; //마우스 호버시 10% 밝게
+        }
+        &:active{
+            background:${darken (0.1,selected)}; //활성화시시 10% 어둡게
+        }
         ${props =>
             props.outline && css`
             color:${selected};
-            background:none;
+            background-color:transparent;
             border:1px solid ${selected};
             &:hover{
-                background:${selected};
-                color:white;
+                color:${selected};
+                color: white;
             }
             `
         }
@@ -24,12 +30,6 @@ const colorStyled = css`
     }}
 `;
 
-// &:hover{
-//     background:${lighten(0.1,selected)}; //마우스 호버시 10% 밝게
-// }
-// &:active{
-//     background:${darken (0.1,selected)}; //활성화시시 10% 어둡게
-// }
 const sizes ={
     large:{
         height:'3rem',
@@ -46,9 +46,10 @@ const sizes ={
 }
 
 const sizeStyledSimple = css`
-    ${({size})=>css`
-        height:${[sizes].height};
-        fontSize:${[sizes].fontSize};
+    ${({size})=>
+        css`
+        height:${sizes[size].height};
+        fontSize:${sizes[size].fontSize};
     `}
 `
 
@@ -56,21 +57,21 @@ const sizeStyledSimple = css`
 //     ${props =>
 //         props.size === `large` &&
 //         css`
-//             heihgt:3rem;
+//             height:3rem;
 //             font-size:1.25rem;
 //         `
 //     }
 //     ${props =>
 //         props.size === `medium` &&
 //         css`
-//             heihgt:2.5rem;
+//             height:2.5rem;
 //             font-size:1rem;
 //         `
 //     }
 //     ${props =>
 //         props.size === `small` &&
 //         css`
-//             heihgt:2rem;
+//             height:2rem;
 //             font-size:0.75rem;
 //         `
 //     }
@@ -129,8 +130,9 @@ function Button({children, color, size, outline, fullwidth, ...rest}){
     );
 }
 
-Button.defalutProps = {
-    color:'blue'
+Button.defaultProps = {
+    color:'blue',
+    size:'medium'
 }
 
 export default Button;

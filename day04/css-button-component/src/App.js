@@ -56,13 +56,13 @@ function App() {
     }}>
       <AppContainer>
         <ButtonGroup>
-          <Button size="small" color="red">버튼1</Button>
+          <Button size="small" >버튼1</Button>
           <Button color="red" >버튼2</Button>
           <Button size="large" color="red">버튼3</Button>
         </ButtonGroup>
         <ButtonGroup>
           <Button size="small" color="blue">버튼1</Button>
-          <Button color="blue">버튼2</Button>
+          <Button >버튼2</Button>
           <Button size="large" color="blue">버튼3</Button>
         </ButtonGroup>
         <ButtonGroup>

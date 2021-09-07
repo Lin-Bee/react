@@ -1,0 +1,28 @@
+.checkbox{
+    display:flex;
+    align-items: center;
+}
+
+.checkbox input{
+    width:0;
+    height:0;
+    position:absolute;
+    opacity: 0;
+}
+
+.checkbox label span{
+    font-weight:bold;
+    font-size:1.5rem;
+}
+
+.icon{
+    display:flex;
+    align-items: center;
+    font-size:2rem;
+    margin-right:0.25rem;
+    color:red;
+}
+
+.checked{
+    color:blue;
+}

@@ -1,0 +1,11 @@
+/* 
+@
+@ Box.module.css 
+   name.module.css 로 만드는게 규칙임
+*/
+
+.Box{
+    background:#000;
+    color:#fff;
+    padding:1rem;
+}

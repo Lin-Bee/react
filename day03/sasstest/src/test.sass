@@ -1,0 +1,80 @@
+//두가지 파일형식이 있음
+//.sass 와 .scss
+//node-sass style.scss -o     하면 코알라없어두댐
+//리액트는 바로 쓸수있음 원래 코알라로 바꿔서 썼는뎅
+
+$pri-color : #333;
+$buttonColor:#222222;
+$buttonDark:darken{$buttonColor,10%};
+$buttonMoreDark:darken{$buttonColor,50%};
+
+a{
+    color:blue;
+    &:hover{
+        color:gray;
+    }
+    &:visited{
+        color:purple;
+    }
+}
+
+body{
+    $pri-color:#333 !global;
+    background-color : $pri-color;
+}
+
+.container{
+    width:100%;
+    h1{color:red;}
+
+    .child{color:blue;}
+
+    @at-root .sibling{color:gray;}
+}
+
+//.container h1{
+//    color:red;
+//}
+
+article[role="main"]{
+    float:left;
+    width:600px / 960px * 100%;
+    //width:62.5%
+}
+
+article[role="banner"]{
+    float:right;
+    width:300px / 960px * 100%;
+    //비율로 설정하기 가능 대신 단위는 같아야함
+
+}
+
+.div1{
+    background-color : $pri-color;
+}
+
+//상속 가능
+.box{
+   border:1px solid gray;
+   padding:10px;
+   display:inline-block; 
+}
+
+.succes-box{
+    @extend .box
+    border:1px solid pink
+}
+
+// 미리 만들어두고 배열에 변수 넣듯 설정가능
+@mixin headline ($color,$size){
+    color:$color;
+    font-size:$size;
+}
+
+h1{
+    @include headline(green,12px);
+}
+
+@function calc-percent($target, $container){
+    @return($target/$container)*100%;
+}

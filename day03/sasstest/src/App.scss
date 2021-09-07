@@ -1,0 +1,12 @@
+$greenColor : #1af550;
+
+.App{
+    width:80%;
+    margin:0 auto;
+    padding:2rem;
+    border:1px solid $greenColor;
+
+    .buttons + .buttons{
+        margin-top:1rem;
+    }
+}

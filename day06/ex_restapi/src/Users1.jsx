@@ -11,18 +11,17 @@ async function getUsers(){
 
 function Users1(){
     const [userId, setUserId] = useState(null);
-    const [state, refetch] = useAsync(getUsers, []);    
+    const [state, refetch] = useAsync(getUsers, [], true);    
 
     const {loading, data:users, error} = state;
 
       if (loading) return <div>로딩중..</div>;
       if (error) return <div>에러가 발생했습니다</div>;
-      if (!users) return null;
       return (
         <>
         <h2>Users (using Hook)</h2>
         <ul>
-          {users.map((user) =>  
+          {users && users.map((user) =>  
             <li 
               key={user.id}
               onClick={() => {setUserId(user.id);}}

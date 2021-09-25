@@ -7,10 +7,11 @@ async function getUser(id){
     return response.data;
 } //callback에서 실행됨
 
-function User(id){
-    const [state] = useAsync( () => getUser(id), [id])    
+function User({id}){
+    const [state, _] = useAsync( () => getUser(id) , [id]);    
+    console.log("User Page")
     const {loading, data:user, error} = state;
-
+    console.log(state);
     if (loading) return <div>로딩중..</div>;
       if (error) return <div>에러가 발생했습니다</div>;
       if (!user) return null;

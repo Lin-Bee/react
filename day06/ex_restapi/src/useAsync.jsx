@@ -51,7 +51,7 @@ function useAsync(callback, deps = [], skip=false){
 
       }, deps);
     
-    return {state,fetchData}
+    return [state,fetchData];
 };
 
 export default useAsync;

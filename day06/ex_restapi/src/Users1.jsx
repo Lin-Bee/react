@@ -22,13 +22,16 @@ function Users1(){
         <>
         <h2>Users (using Hook)</h2>
         <ul>
-          {users.map(user => (
-            <li key={user.id} onClick={()=>setUserId(user.id)} style="cursor = point;">
-              {user.name} ({user.email})
+          {users.map((user) =>  
+            <li 
+              key={user.id}
+              onClick={() => {setUserId(user.id);}}
+              style={{cursor: "pointer"}}>
+                {user.name} ({user.email})
             </li>
-          ))}
+          )}
         </ul>
-        <button onClick={refetch}>리로딩</button>
+        <button onClick={() => {refetch();}}>리로딩</button>
         {userId && <User id={userId}/>}
         </>
       );

@@ -23,18 +23,18 @@ export default function counter(state = initialState, action){
     switch(action.type){
         case SET_DIFF:
             return{
-                state,
+                ...state,
                 diff:action.diff
             };
         case INCREASE:
             return{
-                state,
-                diff:state.number + action.diff
+                ...state,
+                number:state.number + action.diff
             };
         case DECREASE:
             return{
-                state,
-                diff:state.number - action.diff
+                ...state,
+                number:state.number - action.diff
             };
         default:
             return state;

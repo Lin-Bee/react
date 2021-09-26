@@ -15,8 +15,8 @@ function CounterContainer(){
 
     const disapth = useDispatch();
 
-    const onIncrease = () => disapth(increase());
-    const onDecrease = () => disapth(decrease());
+    const onIncrease = () => disapth(increase(diff));
+    const onDecrease = () => disapth(decrease(diff));
     const onSetDiff = diff => disapth(setDiff(diff));
 
     return(

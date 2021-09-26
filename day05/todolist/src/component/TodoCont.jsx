@@ -82,4 +82,4 @@ function TodoCont({id, done, text}){
     );
 }
 
-export default TodoCont;
+export default React.memo(TodoCont);

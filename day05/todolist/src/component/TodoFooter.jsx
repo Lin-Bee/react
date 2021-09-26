@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import styled,{css} from 'styled-components'
+import styled,{css} from 'styled-components';
+import { useTodoDispatch, useTodoNextId } from '../TodoContext';
 
 const ToogleButton = styled.button`
     background: #38d9a9;
@@ -78,13 +79,34 @@ const InputBox = styled.input`
 
 function TodoFooter(){
     const [open, setOpen] = useState(false);
+    const [value, setValue] = useState('');
+    
     const onToggle = () => setOpen(!open);
+    const onChange = e => setValue(e.target.value);
+
+    const dispatch = useTodoDispatch();
+    const nextId = useTodoNextId();
+
+    const onSubmit = e => {
+        e.preventDefault();
+        dispatch({
+            type:'CREATE',
+            todo:{
+                id:nextId.current,
+                text:value,
+                done:false
+            }
+        });
+        setValue('');
+        nextId.current += 1;
+    }
+
     return(
         <>
         {open &&(
         <TodoCreateBlock>
-            <FormBox>
-                <InputBox autoFocus placeholder="할일을입력하세요"/>
+            <FormBox onSubmit={onSubmit}>
+                <InputBox autoFocus placeholder="할 일을 입력하세요" onChange={onChange} value={value}/>
             </FormBox>
         </TodoCreateBlock>
         )}

@@ -15,7 +15,7 @@ const initialTodos = [
     },
     {
         id:3,
-        text:'밥먹기',
+        text:'아무것도안하기',
         done:false
     },
     {
